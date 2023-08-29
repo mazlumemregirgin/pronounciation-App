@@ -4,9 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Pronounciation App</title>
 </head>
 <body>
+    <main>
+        <section id="title">
+            <h1>Pronounciation App</h1>
+        </section>
+        <section class="word-changer">
+            <h3>Kelime1</h3>
+            <button class="button" type="button">Change Word</button>
+        </section>
+        <section class="word-info" style="display: none;">
+            <div id="phonetic"><h3>Phonetic:</h3> <p>Lorem, ipsum.</p></div>
+            <div id="meaning"><h3>Meaning:</h3> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, harum! </p></div>
+        </section>
+        <section class="voice-area">
+            <article id="target-voice"><h2>Target Voice</h2> <audio src="/2Pac - Changes ft. Talent.mp3" controls id="target-audio"></audio>
+            </article>
+            <article id="user-voice">
+                <div class="user-voice-recording"><h2>Your Voice</h2> <audio src="/50 Cent - In Da Club (Official Music Video).mp3" controls id="user-audio"></audio>
+                </div>
+                <div class="user-voice-buttons">
+                    <button class="button" id="recordButton">Start Recording</button>
+                    <button class="button" id="stopButton" disabled>Stop</button>
+                </div>
+            </article> 
+        </section>
+        <section class="compare-button-section"><button class="button" id="compare-button" type="button">Compare it</button>
+        </section>
+        <section class="accuraccy-section">
+            <h2>Accuraccy: </h2>
+            <h3>%84</h3>
+        </section>
+    </main>
+
+    
     
 </body>
+
+
+
+
+
+
+
+<script>
+    const recordButton = document.getElementById('recordButton');
+    const stopButton = document.getElementById('stopButton');
+    const audio = document.getElementById('user-audio');
+    let mediaRecorder;
+    let recordedChunks = [];
+
+    // Kullanıcı izinlerini kontrol et
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function(stream) {
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = event => {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                }
+            };
+
+            mediaRecorder.onstop = () => {
+                const blob = new Blob(recordedChunks, { type: 'audio/wav' });
+                recordedChunks = [];
+                audio.src = URL.createObjectURL(blob);
+            };
+        });
+
+    recordButton.addEventListener('click', () => {
+        mediaRecorder.start();
+        recordButton.disabled = true;
+        stopButton.disabled = false;
+    });
+
+    stopButton.addEventListener('click', () => {
+        mediaRecorder.stop();
+        recordButton.disabled = false;
+        stopButton.disabled = true;
+    });
+</script>
 </html>
