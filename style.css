@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+main{
+    width: 550px;
+    display:flex ;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 40px;
+    gap: 10px;
+}
+/* mainin içindeki title divi */
+#title{
+    text-align: center;
+}
+/* --------------------------- */
+/* mainin içindeki kelime ve değiştirme butonu divi */
+.word-changer{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+/* ----------------------------------------------- */
+/* mainin içindeki ponetik ve anlam gösteren div*/
+.word-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#phonetic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+#meaning{
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    gap: 5px;
+}
+/* ----------------------------------------------- */
+/* mainin içindeki voice bölümü */
+.voice-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+#user-voice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.user-voice-recording{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+.user-voice-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+#target-voice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+audio{
+    width: 220px;
+    height: 40px;
+    
+}
+/* ----------------------------------------------- */
+/* compare button divi  */ 
+.compare-button-section{
+    margin-top: 20px;
+    text-align: center;
+}
+#compare-button{
+    width: 120px;
+    height: 30px;
+}
+/* ----------------------------------------------- */
+.accuraccy-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+.button{
+    border: none;
+    padding: 5px;
+    width: 120px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
