@@ -15,12 +15,12 @@
             <h1>Pronounciation App</h1>
         </section>
         <section class="word-changer">
-            <h3>Kelime1</h3>
-            <button class="button" type="button">Change Word</button>
+            <h3 id="word-name"></h3>
+            <button class="button" id="change-button" type="button">Change Word</button>
         </section>
-        <section class="word-info" style="display: none;">
-            <div id="phonetic"><h3>Phonetic:</h3> <p>Lorem, ipsum.</p></div>
-            <div id="meaning"><h3>Meaning:</h3> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, harum! </p></div>
+        <section class="word-info">
+            <div id="phonetic"><h3>Phonetic:</h3> <p id="phonetic-info">Lorem, ipsum.</p></div>
+            <div id="meaning"><h3>Meaning:</h3> <p id="meaning-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, harum! </p></div>
         </section>
         <section class="voice-area">
             <article id="target-voice"><h2>Target Voice</h2> <audio src="/2Pac - Changes ft. Talent.mp3" controls id="target-audio"></audio>
@@ -42,51 +42,9 @@
         </section>
     </main>
 
-    
-    
+
+
 </body>
 
-
-
-
-
-
-
-<script>
-    const recordButton = document.getElementById('recordButton');
-    const stopButton = document.getElementById('stopButton');
-    const audio = document.getElementById('user-audio');
-    let mediaRecorder;
-    let recordedChunks = [];
-
-    // Kullanıcı izinlerini kontrol et
-    navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(function(stream) {
-            mediaRecorder = new MediaRecorder(stream);
-
-            mediaRecorder.ondataavailable = event => {
-                if (event.data.size > 0) {
-                    recordedChunks.push(event.data);
-                }
-            };
-
-            mediaRecorder.onstop = () => {
-                const blob = new Blob(recordedChunks, { type: 'audio/wav' });
-                recordedChunks = [];
-                audio.src = URL.createObjectURL(blob);
-            };
-        });
-
-    recordButton.addEventListener('click', () => {
-        mediaRecorder.start();
-        recordButton.disabled = true;
-        stopButton.disabled = false;
-    });
-
-    stopButton.addEventListener('click', () => {
-        mediaRecorder.stop();
-        recordButton.disabled = false;
-        stopButton.disabled = true;
-    });
-</script>
+<script src="/script.js"></script>
 </html>
