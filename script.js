@@ -1,7 +1,7 @@
 const wordName = document.querySelector("#word-name")
 const phonetic = document.querySelector("#phonetic-info")
 const meaning = document.querySelector("#meaning-info")
-
+const targetAudio = document.querySelector("#target-audio")
 
 
 const apiUrl = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
@@ -13,7 +13,7 @@ button.addEventListener('click', () => {
 
 function fetchRandomWord() {
   // Rasgele bir kelime seçme
-  const randomWords = ["absence", "apple","apartment","airplane","animal","artist","arrow","area","adventure","angel","aspect","alien","alley","argument","anchor","accident","acoustic","actor","affair","amazing","author","attitude","aunt","album","athlete","atmosphere","auction","award","ambition","alleyway","academy","accent","accident","account","accuracy","accusation","achievement","acknowledgment","witness","wonder","worker","world","worry","worth","wrap","writer","writing","yard","year","yell","yellow","yesterday","yield","young","youth",];
+  const randomWords = [ "apple","apartment","angel","aspect","alien","alley","accident","acoustic","congratulations","actor","ambition","accent","accident","account","accusation","achievement","witness","worker","world","wrap","writer","writing","year","yellow","yield","young","youth",];
   const randomIndex = Math.floor(Math.random() * randomWords.length);
   const randomWord = randomWords[randomIndex];
 
@@ -27,14 +27,14 @@ function fetchRandomWord() {
       return response.json();
     })
     .then(data => {
-      const result = JSON.stringify(data, null, 2);
-      console.log(result)
-      wordName.innerText= result[0];
-
-      
+      wordName.innerText=data[0].word;
+      phonetic.innerText=data[0].phonetic
+      meaning.innerText=data[0].meanings[0].definitions[0].definition;
+      targetAudio.src=data[0].phonetics[0].audio;
     })
     .catch(error => {
       console.error('Veri çekme hatası:', error);
+      fetchRandomWord()
     });
 
 
