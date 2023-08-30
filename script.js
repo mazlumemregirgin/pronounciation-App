@@ -12,7 +12,7 @@ button.addEventListener('click', () => {
 });
 
 function fetchRandomWord() {
-  // Rasgele bir kelime seçme
+
   const randomWords = [ "apple","apartment","angel","aspect","alien","alley","accident","acoustic","congratulations","actor","ambition","accent","accident","account","accusation","achievement","witness","worker","world","wrap","writer","writing","year","yellow","yield","young","youth",];
   const randomIndex = Math.floor(Math.random() * randomWords.length);
   const randomWord = randomWords[randomIndex];
