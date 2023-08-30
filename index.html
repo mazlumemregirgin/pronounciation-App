@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <title>Pronounciation App</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <section id="title">
-            <h1>Pronounciation App</h1>
-        </section>
-        <section class="word-changer">
-            <h3 id="word-name"></h3>
-            <button class="button" id="change-button" type="button">Change Word</button>
-        </section>
-        <section class="word-info">
-            <div id="phonetic"><h3>Phonetic:</h3> <p id="phonetic-info">Lorem, ipsum.</p></div>
-            <div id="meaning"><h3>Meaning:</h3> <p id="meaning-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, harum! </p></div>
-        </section>
-        <section class="voice-area">
-            <article id="target-voice"><h2>Target Voice</h2> <audio src="" controls id="target-audio"></audio>
-            </article>
-            <article id="user-voice">
-                <div class="user-voice-recording"><h2>Your Voice</h2> <audio src="" controls id="user-audio"></audio>
-                </div>
-                <div class="user-voice-buttons">
-                    <button class="button" id="recordButton">Start Recording</button>
-                    <button class="button" id="stopButton" disabled>Stop</button>
-                </div>
-            </article> 
-        </section>
-        <section class="compare-button-section"><button class="button" id="compare-button" type="button">Compare it</button>
-        </section>
-        <section class="accuraccy-section">
-            <h2>Accuraccy: </h2>
-            <h3>%84</h3>
-        </section>
+      <section id="title">
+        <h1>Pronounciation App</h1>
+      </section>
+      <section class="word-changer">
+        <h3 id="word-name"></h3>
+        <button class="button" id="change-button" type="button">
+          Change Word
+        </button>
+      </section>
+      <section class="word-info">
+        <div id="meaning">
+          <h3>Meaning:</h3>
+          <p id="meaning-info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quaerat, harum!
+          </p>
+        </div>
+        <div id="phonetic">
+          <h3>Phonetic:</h3>
+          <p id="phonetic-info-eng">Lorem, ipsum.</p>
+          <p style="margin-left: 30px" id="phonetic-info-us">Lorem, ipsum.</p>
+        </div>
+      </section>
+      <section class="voice-area">
+        <article id="target-voice">
+          <h2>Target Voice</h2>
+          <p>English:</p>
+          <audio src="" controls id="target-audio-eng"></audio>
+          <p>American:</p>
+          <audio src="" controls id="target-audio-us"></audio>
+        </article>
+        <article id="user-voice">
+          <div class="user-voice-recording">
+            <h2>Your Voice</h2>
+            <audio src="" controls id="user-audio"></audio>
+          </div>
+          <div class="user-voice-buttons">
+            <button class="button" id="recordButton">Start Recording</button>
+            <button class="button" id="stopButton" disabled>Stop</button>
+          </div>
+        </article>
+      </section>
+      <section class="compare-button-section">
+        <button class="button" id="compare-button" type="button">
+          Compare it
+        </button>
+      </section>
+      <section class="accuraccy-section">
+        <h2>Accuraccy:</h2>
+        <h3>%84</h3>
+      </section>
     </main>
+  </body>
 
-
-
-</body>
-
-<script src="/script.js"></script>
+  <script src="/script.js"></script>
 </html>
