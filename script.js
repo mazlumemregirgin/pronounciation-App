@@ -61,35 +61,3 @@ stopButton.addEventListener("click", () => {
   stopButton.disabled = true;
 });
 
-//const apiUrl = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
-//button.addEventListener('click', () => {
-//   fetchRandomWord();
-// });
-
-// function fetchRandomWord() {
-//   const randomWords = [ "wonderful","resolution","quit","target","disagree","disappear","dislike","misplace","misunderstand","overpopulated","overwork","rebuild","rethink","underpaid","pressure","reliable","skill","management","technology","advise","allow","encourage","persuade","attract","customer"]
-//   const randomIndex = Math.floor(Math.random() * randomWords.length);
-//   const randomWord = randomWords[randomIndex];
-
-//   const wordUrl = apiUrl + randomWord;
-
-//   fetch(wordUrl)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('HTTP error ' + response.status);
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log(JSON.stringify(data, null,2 ))
-//       wordName.innerText=data[0].word;
-//       phoneticEng.innerText= "English :   " + data[0].phonetic;
-//       phoneticUsa.innerText= "American :   " + data[0].phonetic;
-//       meaning.innerText=data[0].meanings[0].definitions[0].definition;
-
-//     })
-//     .catch(error => {
-//       console.error('Veri çekme hatası:', error);
-
-//     });
-// }
