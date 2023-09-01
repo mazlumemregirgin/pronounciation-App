@@ -39,6 +39,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
   mediaRecorder.ondataavailable = (event) => {
     if (event.data.size > 0) {
       recordedChunks.push(event.data);
+      console.log(recordedChunks)
     }
   };
 
